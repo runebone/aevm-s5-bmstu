@@ -1,0 +1,7 @@
+[submodule "lab2_stage1"]
+	path = lab2_stage1
+	url = git@latex.bmstu.ru:hackathon2023/lab2/lab2_stage1/lab2_stage1.git
+[submodule "lab2_stage2"]
+	path = lab2_stage2
+	url = git@latex.bmstu.ru:hackathon2023/lab2/lab2_stage2/lab2_stage2.git
+
