@@ -4,15 +4,20 @@
 
 .PHONY: all clean
 
-all: stage1 stage2
+all: sw-kernel-app host-app
 
-stage1: 
-	make -C lab2_stage1
+sw-kernel-app: 
+	make -C sw-kernel-lib
+	make -C sw-kernel
 
-stage2: 
-	make -C lab2_stage2
+host-app: 
+	make -C host-lib
+	make -C host
+
 
 clean:
-	make -C lab2_stage1 clean
-	make -C lab2_stage2 clean
+	make -C sw-kernel clean
+	make -C host clean
+	make -C sw-kernel-lib clean
+	make -C host-lib clean
 

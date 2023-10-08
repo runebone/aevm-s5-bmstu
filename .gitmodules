@@ -5,3 +5,15 @@
 	path = lab2_stage2
 	url = git@latex.bmstu.ru:hackathon2023/lab2/lab2_stage2/lab2_stage2.git
 
+[submodule "host"]
+	path = host
+	url = git@latex.bmstu.ru:hackathon2023/lab2/lab2_stage1/host.git
+[submodule "sw-kernel"]
+	path = sw-kernel
+	url = git@latex.bmstu.ru:hackathon2023/lab2/lab2_stage1/sw-kernel.git
+[submodule "host-lib"]
+	path = host-lib
+	url = git@latex.bmstu.ru:lnh64_l0/host-lib.git
+[submodule "sw-kernel-lib"]
+	path = sw-kernel-lib
+	url = git@latex.bmstu.ru:lnh64_l0/sw-kernel-lib.git
