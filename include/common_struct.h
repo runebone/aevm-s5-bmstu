@@ -11,7 +11,10 @@
 enum Structures : uint32_t {
     null            = 0,   	//Нулевая структура не используется
     users_pnum    	= 1,	//Таблица 1 
-    resources_pnum  = 2		//Таблица 2 
+    resources_pnum  = 2,		//Таблица 2 
+    a_pnum   = 3,
+    b_pnum   = 4,
+    c_pnum   = 5
 };
 
 #ifdef __riscv64__
@@ -79,7 +82,29 @@ struct users {
 	#endif
 };
 
+struct mystruct {
+    int struct_number;
+    constexpr mystruct(int struct_number) : struct_number(struct_number) {}
+
+	STRUCT(key)
+	{
+	    uint64_t	idx	    :64;
+	};
+
+	STRUCT(val)
+	{
+	    uint64_t	value	:64;
+	};
+
+	#ifdef __riscv64__
+    DEFINE_DEFAULT_KEYVAL(key, val)
+	#endif
+};
+
 constexpr users USERS(Structures::users_pnum);
+constexpr mystruct A(Structures::a_pnum);
+constexpr mystruct B(Structures::b_pnum);
+constexpr mystruct C(Structures::c_pnum);
 
 #endif //COMMON_STRUCT
 
