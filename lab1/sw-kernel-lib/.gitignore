@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+.vscode
+obj
+*.dissasembled
+*.dump
+*.hw_init
+*.map
+*.rawbinary
+*.sim_init
+*.log
+lib

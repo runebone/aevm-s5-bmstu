@@ -1,0 +1,6 @@
+*.log
+.ipynb_checkpoints
+.vscode
+host_main
+obj
+lib
