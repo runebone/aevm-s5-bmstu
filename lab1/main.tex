@@ -1,0 +1,175 @@
+\documentclass[a4paper,oneside,14pt]{extarticle}
+
+\include{preamble}
+
+\begin{document}
+
+\include{title}
+\setcounter{page}{2}
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+\tableofcontents
+
+\newpage
+
+\section{Цели}
+
+Основной целью работы является ознакомление с принципами функционирования, построения и особенностями архитектуры суперскалярных конвейерных микропроцессоров.
+
+Дополнительной целью работы является знакомство с принципами проектирования и верификации сложных цифровых устройств с использованием языка описания аппаратуры SystemVerilog и ПЛИС.
+
+\section{Задания}
+
+Далее представлен ход выполнения заданий лабораторной работы.
+
+\subsection{Задание 1}
+
+Далее представлены листинги, полученные в процессе выполнения первого задания лабораторной работы.
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Код программы по варианту на языке ассемблера}
+    ]{lst/1.s}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Дизассемблированный листинг кода программы по варианту}
+    ]{lst/text.s}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Код программы по варианту в шестнадцатеричном представлении}
+    ]{lst/1.hex}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        language={C++},
+        caption={Псевдокод программы по варианту}
+    ]{lst/1.c}
+\end{lstinputlisting}
+\end{code}
+
+В результате выполнения программы, в регистре \texttt{x31} будет содержаться число, соответствующее максимальному элементу массива \texttt{x\_}, то есть \texttt{8}.
+
+\subsection{Задание 2}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Дизассемблированный листинг кода тестовой программы test.s}
+    ]{lst/test.s}
+\end{lstinputlisting}
+\end{code}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/2.png}
+	\caption{Временная диаграмма выполнения стадий выборки и диспечеризации команды по адресу 80000024, 2-я итерация}
+	\label{fig:2}
+\end{figure}
+
+\subsection{Задание 3}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/3.png}
+    \caption{Временная диаграмма выполнения стадии декодирования и планирования на выполнение команды по адресу 80000030, 2-я итерация}
+	\label{fig:3}
+\end{figure}
+
+\subsection{Задание 4}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/4.png}
+    \caption{Временная диаграмма выполнения стадии выполнения команды по адресу 8000001c, 2-я итерация}
+	\label{fig:4}
+\end{figure}
+
+\subsection{Задание 5}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/5.png}
+    \caption{Временная диаграмма всех стадий выполнения команды, обозначенной в тексте программы \#!}
+	\label{fig:5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/x31.png}
+    \caption{В результате выполнения программы, регистр x31 принимает значение 8, как и ожидалось}
+	\label{fig:x31}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/pipeline-unoptimized.pdf}
+    \caption{Трасса выполнения неоптимизированной программы}
+	\label{fig:pu}
+\end{figure}
+
+Конфликты возникают из-за того, что происходит обращение к регистру, запись в который ещё не была завершена.
+Как можно заметить по псевдокоду, строка x1 += enroll (add x1, x1, elem\_sz*enroll) будет выполнена вне зависимости от предшествующих условных переходов, а также значение регистра x1 не используется после строки lw x3, 4(x1) в пределах выполнения тела цикла.
+Следовательно, если поместить строку add x1, x1, slem\_sz*enroll сразу после lw x3, 4(x1), это не повлияет на результат выполнения программы, зато даст дополнительную задержку в один такт между загрузкой значения в x2 и чтением из него, что позволит устранить конфликты.
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Оптимизированный код программы по варианту на языке ассемблера}
+    ]{lst/opt.s}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Дизассемблированный листинг оптимизированного кода программы по варианту}
+    ]{lst/opt-text.s}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={Оптимизированный код программы по варианту в шестнадцатеричном представлении}
+    ]{lst/opt.hex}
+\end{lstinputlisting}
+\end{code}
+
+\begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        language={C++},
+        caption={Псевдокод оптимизированной программы по варианту}
+    ]{lst/opt.c}
+\end{lstinputlisting}
+\end{code}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/pipeline-optimized.pdf}
+    \caption{Трасса выполнения оптимизированной программы}
+	\label{fig:po}
+\end{figure}
+
+\newpage
+
+\section{Заключение}
+
+В результате данной работы были изучены принципы функционирования, построения и особенности архитектуры суперскалярных конвейерных микропроцессоров.
+
+На основе изученных материалов был найден способ оптимизировать программу.
+
+Цель работы была достигнута.
+
+\end{document}
