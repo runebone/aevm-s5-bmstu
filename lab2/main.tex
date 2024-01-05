@@ -1,0 +1,240 @@
+\documentclass[a4paper,oneside,14pt]{extarticle}
+
+\include{preamble}
+
+\begin{document}
+
+\include{title}
+\setcounter{page}{2}
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+\tableofcontents
+
+\newpage
+
+\phantomsection\section*{ВВЕДЕНИЕ}\addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+
+Цель работы --- освоение принципов эффективного использования подсистемы памяти современных универсальных ЭВМ, обеспечивающей хранение и своевременную выдачу команд и данных в центральное процессорное устройство.
+Работа проводится с использованием программы для сбора и анализа производительности PCLAB.
+
+\newpage
+
+\section{Эксперимент 1: Исследование расслоения динамической памяти}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (максимальное расстояние между читаемыми данными): 64
+    \item Параметр 2 (шаг увеличения расстояния между читаемыми 4х байтовыми ячейками): 64
+    \item Параметр 3 (размер массива): 8
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/1.png}
+    \caption{Исследование расслоения динамической памяти}
+	\label{fig:1}
+\end{figure}
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+\newpage
+
+\section{Эксперимент 2: Сравнение эффективности ссылочных и векторных структур}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (количество элементов в списке): 1
+    \item Параметр 2 (максимальная фрагментация списка): 256
+    \item Параметр 3 (шаг изменения фрагментации): 4
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/2.png}
+    \caption{Сравнение эффективности ссылочных и векторных структур}
+	\label{fig:2}
+\end{figure}
+
+Список обрабатывался в 40.391009 раз дольше.
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+\newpage
+
+\section{Эксперимент 3: Исследование эффективности программной предвыборки}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (шаг увеличения расстояния между читаемыми данными): 256
+    \item Параметр 2 (размер массива): 512
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/3.png}
+    \caption{Исследование эффективности программной предвыборки}
+	\label{fig:3}
+\end{figure}
+
+Обработка без загрузки таблицы страниц в TLB производилась в 1.347938 раз дольше.
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+\newpage
+
+\section{Эксперимент 4: Исследование способов эффективного чтения оперативной памяти}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (размер массива): 4
+    \item Параметр 2 (количество потоков данных): 64
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/4.png}
+    \caption{Исследование способов эффективного чтения оперативной памяти}
+	\label{fig:4}
+\end{figure}
+
+Неоптимизированная структура обрабатывалась в 1.1646418 раз дольше.
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+\newpage
+
+\section{Эксперимент 5: Исследование конфликтов в кеш-памяти}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (размер блока кеш-памяти): 256
+    \item Параметр 2 (размер линейки кеш-памяти): 128
+    \item Параметр 3 (количество читаемых линеек): 512
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/5.png}
+    \caption{Исследование конфликтов в кеш-памяти}
+	\label{fig:5}
+\end{figure}
+
+Чтение с конфликтами банков производилось в 1.0824 раз дольше.
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+\newpage
+
+\section{Эксперимент 6: Сравнение алгоритмов сортировки}
+
+\subsection{Параметры эксперимента}
+
+\begin{enumerate}
+    \item Параметр 1 (количество 64-х разрядных элементов массивов): 1
+    \item Параметр 2 (шаг увеличения размера массива): 4
+\end{enumerate}
+
+\subsection{Результат эксперимента}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/6.png}
+    \caption{Сравнение алгоритмов сортировки}
+	\label{fig:6}
+\end{figure}
+
+QuickSort работал в 1.6806711 раз дольше Radix-Counting Sort.
+QuickSort работал в 1.7781202 раз дольше Radix-Counting Sort, оптимизированного под 8-процессорную ЭВМ.
+
+% \subsection{Цель эксперимента}
+
+% \subsection{Описание проблемы}
+
+% \subsection{Суть эксперимента}
+
+% \subsection{Условия эксперимента}
+
+% \subsection{Результаты эксперимента}
+
+% \subsection{Вывод}
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=1\textwidth]{img/pipeline-optimized.pdf}
+%     \caption{Трасса выполнения оптимизированной программы}
+% 	\label{fig:po}
+% \end{figure}
+
+\newpage
+
+\phantomsection\section*{ЗАКЛЮЧЕНИЕ}\addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+
+Освоены принципы эффективного использования подсистемы памяти современных универсальных ЭВМ, обеспечивающей хранение и своевременную выдачу команд и данных в центральное процессорное устройство.
+Работа была проведена с использованием программы для сбора и анализа производительности PCLAB.
+Поставленная цель достигнута.
+
+\end{document}
