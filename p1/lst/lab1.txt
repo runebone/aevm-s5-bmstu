@@ -1,0 +1,6 @@
+iu7108@dl580:~/lab1$ host/host_main sw-kernel/sw_kernel.rawbinary
+Open gpc on /dev/gpc6
+Rawbinary loaded from sw-kernel/sw_kernel.rawbinary
+sw_kernel version: 0x28102023
+Leonhard clock frequency (LNH_CF) 180.021776 MHz
+Test done

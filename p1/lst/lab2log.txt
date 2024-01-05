@@ -1,0 +1,5 @@
+Открывается доступ к /dev/gpc2 
+Программное ядро загружено из файла sw-kernel/sw_kernel.rawbinary 
+Введен запрос: select role from users where user=5 and time>7200; 
+Запрос принят в обработку. 
+Поиск ролей пользователя 5и time > 7200 

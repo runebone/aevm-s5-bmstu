@@ -1,0 +1,100 @@
+\documentclass[a4paper,oneside,14pt]{extarticle}
+
+\include{preamble}
+
+\begin{document}
+
+\include{title}
+\setcounter{page}{2}
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+\tableofcontents
+
+\newpage
+
+\section{Задание 1}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/lab1.txt}
+\end{lstinputlisting}
+% \end{code}
+
+\section{Задание 2}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/lab2.txt}
+\end{lstinputlisting}
+% \end{code}
+
+Запись в логе:
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/lab2log.txt}
+\end{lstinputlisting}
+% \end{code}
+
+\newpage
+
+\section{Индивидуальное задание}
+
+\subsection{Условие}
+\textbf{Устройство формирования индексов SQL UNION.}
+Сформировать в хост-подсистеме и передать в SPE 256 записей множества A (случайные числа в диапазоне 0..1024) и 256 записей множества B (случайные числа в диапазоне 0..1024).
+Сформировать в SPE множество C = A or B.
+Выполнить тестирование работы SPE, сравнив набор ключей в множестве C с ожидаемым.
+
+\subsection{Изменённый файл host\_main.cpp}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/host_main.cpp}
+\end{lstinputlisting}
+% \end{code}
+
+\subsection{Изменённый файл common\_struct.h}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/common_struct.h}
+\end{lstinputlisting}
+% \end{code}
+
+\subsection{Изменённый файл sw\_kernel\_main.cpp}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/sw_kernel_main.cpp}
+\end{lstinputlisting}
+% \end{code}
+
+\subsection{Результат работы программы}
+
+% \begin{code}
+\begin{lstinputlisting}[
+        label={lst:1},
+        caption={}
+    ]{lst/mainlog.txt}
+\end{lstinputlisting}
+% \end{code}
+
+% \newpage
+
+\phantomsection\section*{ЗАКЛЮЧЕНИЕ}\addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+
+В результате работы изучены принципы работы вычислительного комплекса Тераграф и получены практические навыки решения задач обработки множеств на основе гетерогенной вычислительной структуры. 
+
+\end{document}
